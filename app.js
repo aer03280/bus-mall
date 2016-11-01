@@ -2,7 +2,7 @@
 
 var arrayAllImg = [];
 
-// Constructor to make an array of all images with their properties
+// Constructor to make an array of all image objects
 function Image (imgName , filePath){
   this.imgName = imgName;
   this.filePath = filePath;
@@ -14,7 +14,7 @@ function Image (imgName , filePath){
 // place function here to run the below (eventhandler)
 function loadImage(){
 
-// function to generate a random number from the length of the array containing all images
+  // function to generate a random number from the length of the array containing all images
   function randomNumbGenerator(){
     var randomNumb = parseInt(Math.random() * arrayAllImg.length);
     return randomNumb;

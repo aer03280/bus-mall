@@ -1,5 +1,6 @@
 'use strict';
 
+// var percent = [];
 var arrayAllImg = [];
 var totalClicks = 0;
 var clickLim = 3;
@@ -8,6 +9,7 @@ var arrayAllImg = [
   new Image('bag' , 'assets/bag.jpg'),
   new Image('bathroom' , 'assets/bathroom.jpg'),
   new Image('boots' , 'assets/boots.jpg'),
+  new Image('banana' , 'assets/banana.jpg'),
   new Image('breakfast' , 'assets/breakfast.jpg'),
   new Image('bubblegum' , 'assets/bubblegum.jpg'),
   new Image('chair' , 'assets/chair.jpg'),
@@ -84,11 +86,12 @@ function getRandomImgs(event){
     imgTag[i].setAttribute('src' , productsToBeDisplayed[i].filePath);
     imgTag[i].setAttribute('alt' , randomIdx[i]);
   }
-
     // Remove event handler when clickLim is reached
   if (totalClicks >= clickLim) {
     for (var i = 0; i < imgTag.length; i++) {
       imgTag[i].removeEventListener('click' , getRandomImgs);
+      // createStoreData();
+      // storeData(i);
     }
       // select the id click-info in html and create unordered list as a child element below it
     var clickInfo = document.getElementById('click-info');
@@ -112,7 +115,7 @@ function getRandomImgs(event){
       li.innerText = fillerInfo;
       ul.appendChild(li);
     }
-  };
+  }
 }
 
 getRandomImgs();
@@ -132,5 +135,26 @@ function productsShown() {
     console.log(arrayAllImg[i].imgName + 'clicked' + arrayAllImg[i].clicks + 'times.');
   }
 }
+localStorage.setItem('arrayAllImg', JSON.stringify(arrayAllImg));
+var holder =JSON.parse(localStorage.getItem('arrayAllImg'));
+console.log(holder);
+console.log(holder[0].shown);
+
+var table = document.getElementById('table');
+var tr = document.createElement('tr');
+table.appendChild(tr);
+for (var i = 0; i < holder.length; i++) {
+  var td = document.createElement('td');
+  td.innerText = holder[i].shown;
+  tr.appendChild(td);
+}
+var tr2 = document.createElement('tr');
+table.appendChild(tr2);
+for (var i = 0; i < holder.length; i++) {
+    var td = document.createElement('td');
+    td.innerText = holder[i].clicks;
+    tr2.appendChild(td);
+}
+
 var canvas = document.getElementById('chart');
 var ctx = canvas.getContext('2d');

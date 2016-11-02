@@ -132,3 +132,5 @@ function productsShown() {
     console.log(arrayAllImg[i].imgName + 'clicked' + arrayAllImg[i].clicks + 'times.');
   }
 }
+var canvas = document.getElementById('chart');
+var ctx = canvas.getContext('2d');

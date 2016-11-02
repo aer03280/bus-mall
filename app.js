@@ -1,55 +1,134 @@
 'use strict';
 
 var arrayAllImg = [];
+var totalClicks = 0;
+var clickLim = 3;
+
+var arrayAllImg = [
+  new Image('bag' , 'assets/bag.jpg'),
+  new Image('bathroom' , 'assets/bathroom.jpg'),
+  new Image('boots' , 'assets/boots.jpg'),
+  new Image('breakfast' , 'assets/breakfast.jpg'),
+  new Image('bubblegum' , 'assets/bubblegum.jpg'),
+  new Image('chair' , 'assets/chair.jpg'),
+  new Image('cthulhu' , 'assets/cthulhu.jpg'),
+  new Image('dog duck' , 'assets/dog-duck.jpg'),
+  new Image('dragon' , 'assets/dragon.jpg'),
+  new Image('pen' , 'assets/pen.jpg'),
+  new Image('pet sweep' , 'assets/pet-sweep.jpg'),
+  new Image('scissors' , 'assets/scissors.jpg'),
+  new Image('shark' , 'assets/shark.jpg'),
+  new Image('sweep' , 'assets/sweep.png'),
+  new Image('tauntaun' , 'assets/tauntaun.jpg'),
+  new Image('unicorn' , 'assets/unicorn.jpg'),
+  new Image('usb' , 'assets/usb.gif'),
+  new Image('water can' , 'assets/water-can.jpg'),
+  new Image('wine glass' , 'assets/wine-glass.jpg'),
+];
 
 // Constructor to make an array of all image objects
-function Image (imgName , filePath){
+function Image(imgName , filePath){
+  console.log('Image', imgName);
   this.imgName = imgName;
   this.filePath = filePath;
-  this.numbTimesDisplayed = 0;
-  this.numbTimesClicked = 0;
+  this.shown = 0;
+  this.clicks = 0;
   arrayAllImg.push(this);
 };
 
 // place function here to run the below (eventhandler)
-function loadImage(){
+// function loadImage(){
 
   // function to generate a random number from the length of the array containing all images
-  function randomNumbGenerator(){
-    var randomNumb = parseInt(Math.random() * arrayAllImg.length);
-    return randomNumb;
+function randomNumbGenerator(){
+  return parseInt(Math.random() * arrayAllImg.length);
+};
+// set the variable for indice array of images alraedy clicked
+var oldIdx = [];
+
+// Make an array of clicked images and Inc the tally of clicks on the img's position[i] within that array, if the img was already picked then draw again
+function getRandomImgs(event){
+  totalClicks++;
+  if (event){
+    var clickedImgIdx = parseInt(event.target.alt);
+    arrayAllImg[clickedImgIdx].clicks++;
+  }
+    // get all the imgTag that have the class of clickable
+  var imgTag = document.getElementsByClassName('clickable');
+  // this array holds the random indexes
+  var randomIdx = [];
+
+    // for each div to fill with an img, genterate a random index position. The imgTag length depends on how many className 'clickable' elements are listed in html
+  for (var i = 0; i < imgTag.length; i++){
+    var idx = randomNumbGenerator();
+    while (randomIdx.indexOf(idx) !== -1 || oldIdx.indexOf(idx) !== -1){
+        // check for duplicate displayed imgages on same draw or if the image was just seen...run function again to pick a diff image
+      idx = randomNumbGenerator();
+    }
+    // generate a # to represent the position in the array
+    randomIdx[i] = idx;
+  }
+  // kept the newly generated Idx to compare for duplicates on the next click
+  oldIdx = randomIdx;
+    // create a variable for an array of items to be displayed and once it has been displayed then increase the number of times shown.
+  var productsToBeDisplayed = [];
+  for (var i = 0; i < randomIdx.length; i++){
+    var thisIdx = randomIdx[i];
+    productsToBeDisplayed[i] = arrayAllImg[thisIdx];
+    arrayAllImg[thisIdx].shown++;
+  }
+    // Loop through the imgTag in html and find the tags to fill the src with the filePath and the and the index of that corresponding product in the 'alt' attribute of the img.
+    // according to the random position in the array, fill the src of the imgTag with a filePath and store the index corresponding to that product in the 'alt' attribute of the image.
+
+  for (var i = 0; i < imgTag.length; i++){
+    imgTag[i].setAttribute('src' , productsToBeDisplayed[i].filePath);
+    imgTag[i].setAttribute('alt' , randomIdx[i]);
+  }
+
+    // Remove event handler when clickLim is reached
+  if (totalClicks >= clickLim) {
+    for (var i = 0; i < imgTag.length; i++) {
+      imgTag[i].removeEventListener('click' , getRandomImgs);
+    }
+      // select the id click-info in html and create unordered list as a child element below it
+    var clickInfo = document.getElementById('click-info');
+    var ul = document.createElement('ul');
+    clickInfo.appendChild(ul);
+
+    // for each of the images, list its clicked and shown info
+    for (var i = 0; i < arrayAllImg.length; i++) {
+      var thisImage = arrayAllImg[i];
+      var li = document.createElement('li');
+      var fillerInfo = '';
+      fillerInfo += thisImage.imgName;
+      if (thisImage.shown === 0){
+        fillerInfo += ' | Click Rate: None';
+      } else {
+        console.log('NAME:  ', thisImage.imgName);
+        console.log('thisImage.clicks: ', thisImage.clicks);
+        console.log('thisImage.shown: ', thisImage.shown);
+        fillerInfo += ' | Click Rate: ' + (thisImage.clicks / thisImage.shown * 100) + '%';
+      }
+      li.innerText = fillerInfo;
+      ul.appendChild(li);
+    }
   };
-
-  // provides randomly generated number from randomNumbGenerator function
-  var randomGenOne = randomNumbGenerator();
-  var randomGenTwo = randomNumbGenerator();
-  var randomGenThree = randomNumbGenerator();
-
-  // places randomly generated number into arrayAllImg to pick img from the array
-  var displayImgOne = arrayAllImg[randomGenOne];
-  var displayImgTwo = arrayAllImg[randomGenTwo];
-  var displayImgThree = arrayAllImg[randomGenThree];
-
-  // get each img by it's id
-  var imgOne = document.getElementbyId('imgOne');
-  var imgTwo = document.getElementbyId('imgTwo');
-  var imgThree = document.getElementbyId('imgThree');
-
-  // telling interpretor to look for filepath to display
-  imgOne.setAttribute('src' , imgOne.filePath);
-  imgTwo.setAttribute('src' , imgTwo.filePath);
-  imgThree.setAttribute('src' , imgThree.filePath);
-
 }
 
-var arrayAllImages = [
-  new Image ('bag' , 'assets/bag.jpg'),
-  new Image ('banana' , 'assets/banana.jpg'),
-  new Image ('bathroom' , 'assets/bathroom.jpg'),
-  new Image ('boots' , 'assets/boots.jpg'),
-  new Image ('breakfast' , 'assets/breakfast.jpg'),
-];
+getRandomImgs();
+// compensating for the extra click added by calling the above function when page initially loads
+totalClicks--;
 
-imgOne.addEventListener('click' , loadImage);
-imgTwo.addEventListener('click' , loadImage);
-imgThree.addEventListener('click' , loadImage);
+// event listener for clicks - call the getRandomImgs function when someone clicks on an imgTag item
+var imgTag = document.getElementsByClassName('clickable');
+for (var i = 0; i < imgTag.length; i++) {
+  imgTag[i].addEventListener('click' , getRandomImgs);
+}
+
+  // checking the work
+function productsShown() {
+  for (var i = 0; i < arrayAllImg.length; i++) {
+    console.log(arrayAllImg[i].imgName + 'shown' + arrayAllImg[i].shown + 'times.');
+    console.log(arrayAllImg[i].imgName + 'clicked' + arrayAllImg[i].clicks + 'times.');
+  }
+}

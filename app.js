@@ -2,7 +2,7 @@
 
 var arrayAllImg = [];
 var totalClicks = 0;
-var clickLim = 3;
+var clickLim = 15;
 
 var arrayAllImg = [
   new Image('bag' , 'assets/bag.jpg'),
@@ -112,6 +112,7 @@ function getRandomImgs(event){
       li.innerText = fillerInfo;
       ul.appendChild(li);
     }
+    drawChart();
   };
 }
 

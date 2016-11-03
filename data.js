@@ -3,7 +3,7 @@
 function drawChart() {
   var dataToChart = [];
   var namesToChart = [];
-  for (var i = 0; i < arrayAllImg; i++){
+  for (var i = 0; i < arrayAllImg.length; i++){
     dataToChart.push(arrayAllImg[i].clicks);
     namesToChart.push(arrayAllImg[i].imgName);
   }
@@ -12,31 +12,15 @@ function drawChart() {
   new Chart (ctx, {
     type: 'bar',
     data: {
-      labels:['Image Name'],
+      labels: namesToChart,
       datasets: [
         {
-          label: 'Number of Clicks for each Item',
-          backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(255, 159, 64, 0.2)'
-          ],
-          borderColor: [
-            'rgba(255,99,132,1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)'
-          ],
+          label: '# Clicks Per Item',
+          backgroundColor: 'rgba(255 , 95 , 132 , 0.2)',
+          // borderColor: [0 , 153 , 153],
           borderWidth: 1,
-          data: [arrayAllImg[i].clicks],
-
+          data: dataToChart,
         }
-
       ]
     },
     options: {
@@ -50,6 +34,6 @@ function drawChart() {
       }
     }
   });
+  reponsive: false;
 
 }
-  //     labels: ['bag' , 'banana' , 'bathroom' , 'boots' , 'breakfast' , 'bubblegum' ,'chair' , 'cthulhu' , 'dog duck' , 'dragon' , 'pen' , 'pet sweep' , 'scissors' , 'shark' , 'sweep' , 'tauntaun' , 'unicorn' , 'usb' , 'water can' , 'wine glass'

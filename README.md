@@ -12,6 +12,8 @@ A site to capture and present data from a focus group for the marketing team of 
 -style.css
 -resetstyle.css
 -app.js
+-data.js
+-user_stories.md
 -README.md
 -LICENSE
 -assets folder with images
@@ -19,8 +21,6 @@ A site to capture and present data from a focus group for the marketing team of 
 
 #Summary
 
-The assignment's emphasis is on using Javascript to design a fun guessing game about myself.
+The assignment's emphasis is on using Javascript to design a survey that uses local storage to record clicked images and display them on a table and chart.
 
-I am also using this assignment to practice pushing files to my remote repository in GitHub, which I will perform periodically as I create this project.
-
-Update 10-20-16: Partnered with Stephen as the Driver while I was Navigator to update the Javascript with functions.
+Update 11-2-16: Partnered with Alex as the Driver while I was Navigator to code for local storage.

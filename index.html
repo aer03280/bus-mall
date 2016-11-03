@@ -5,27 +5,27 @@
     <title>Bus Mall Focus Group</title>
     <link rel="stylesheet"  type="text/css" href="resetstyle.css" />
     <link rel="stylesheet"  type="text/css" href="style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Cinzel|Economica" rel="stylesheet">
   </head>
-  <body>
-  <header>
-    <p>Banner</p>
-    <p>Nav</p>
+  <body id="body">
+  <header id="header">
+    <p id="banner">BusMall Survey</p>
+    <p id="subtitle">What would you buy???</p>
   </header>
     <section id="section">
       <ul>
-        <div id="div1"><li id="list1"><img class="clickable" id="img1"/></li></div>
-        <div id="div2"><li id="list2"><img class="clickable" id="img2"/></li></div>
-        <div id="div3"><li id="list3"><img class="clickable" id="img3"/></li></div>
+        <div id="div1"><span class="span"></span><img class="clickable" id="img1"/></div>
+        <div id="div2"><span class="span"></span><img class="clickable" id="img2"/></div>
+        <div id="div3"><span class="span"></span><img class="clickable" id="img3"/></div>
       </ul>
     </section>
   <section id="click-info"></section>
-  <section><canvas id="chart" width="150px" height="100px"></canvas>
 </section>
 <section>
   <table id="table">
-
   </table>
 </section>
+<section><canvas id="chart" width="150" height="100"></canvas>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.min.js" charset="utf-8"></script>
   <script src="app.js" charset="utf-8"></script>
   <script src="data.js" charset="utf-8"></script>

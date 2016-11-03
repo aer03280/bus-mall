@@ -11,9 +11,9 @@ var clickLim = 3;
 
 var arrayAllImg = [
   new Image('bag' , 'assets/bag.jpg'),
+  new Image('banana' , 'assets/banana.jpg'),
   new Image('bathroom' , 'assets/bathroom.jpg'),
   new Image('boots' , 'assets/boots.jpg'),
-  new Image('banana' , 'assets/banana.jpg'),
   new Image('breakfast' , 'assets/breakfast.jpg'),
   new Image('bubblegum' , 'assets/bubblegum.jpg'),
   new Image('chair' , 'assets/chair.jpg'),
@@ -109,6 +109,7 @@ function getRandomImgs(event){
     for (var i = 0; i < holder.length; i++) {
       var td = document.createElement('td');
       td.innerText = holder[i].clicks;
+      td.setAttribute('id' , 'tdId');
       tr2.appendChild(td);
 
     }
@@ -163,6 +164,7 @@ var tr = document.createElement('tr');
 table.appendChild(tr);
 for (var i = 0; i < holder.length; i++) {
   var td = document.createElement('td');
+  td.setAttribute('id' , 'td2Id');
   td.innerText = holder[i].shown;
   tr.appendChild(td);
 }

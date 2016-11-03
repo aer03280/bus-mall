@@ -1,0 +1,69 @@
+
+
+#list1 {
+  list-style-type: none;
+  display: inline-block;
+  margin-left: 10%;
+  border: 6px solid black;
+  padding-bottom: -5px;
+}
+
+#list2 {
+  list-style-type: none;
+  display: inline-block;
+  margin-left: 30%;
+
+}
+
+#list3 {
+  list-style-type: none;
+  display: inline-block;
+  margin-left: 70%;
+
+}
+
+#section{
+  border: 2px solid black;
+}
+
+#img1 {
+  width: 300px;
+  height: 300px;
+}
+
+#img2 {
+  width: 300px;
+  height: 300px;
+  }
+
+#img3 {
+  width: 300px;
+  height: 300px;
+}
+
+#table {
+  border: 5px solid black;
+  width: 50%;
+  border-collapse: separate;
+  padding: 5px;
+  border-width: thin;
+  border-spacing: 5px;
+  border-color: black;
+  background-color: blue;
+
+}
+
+#trId
+
+#tdId {
+  height: 40px;
+  background-color: orange;
+}
+
+#tr2Id
+
+
+#td2Id {
+  height: 40px;
+  background-color: orange;
+}

@@ -1,15 +1,19 @@
 'use strict';
 
 // var percent = [];
+var holder = JSON.parse(localStorage.getItem('arrayAllImg'));
+console.log(holder);
+console.log(holder[0].shown);
+
 var arrayAllImg = [];
 var totalClicks = 0;
 var clickLim = 3;
 
 var arrayAllImg = [
   new Image('bag' , 'assets/bag.jpg'),
+  new Image('banana' , 'assets/banana.jpg'),
   new Image('bathroom' , 'assets/bathroom.jpg'),
   new Image('boots' , 'assets/boots.jpg'),
-  new Image('banana' , 'assets/banana.jpg'),
   new Image('breakfast' , 'assets/breakfast.jpg'),
   new Image('bubblegum' , 'assets/bubblegum.jpg'),
   new Image('chair' , 'assets/chair.jpg'),
@@ -54,6 +58,7 @@ function getRandomImgs(event){
   if (event){
     var clickedImgIdx = parseInt(event.target.alt);
     arrayAllImg[clickedImgIdx].clicks++;
+    console.log('incrementing times clicked for ', arrayAllImg[clickedImgIdx]);
   }
     // get all the imgTag that have the class of clickable
   var imgTag = document.getElementsByClassName('clickable');
@@ -78,6 +83,7 @@ function getRandomImgs(event){
     var thisIdx = randomIdx[i];
     productsToBeDisplayed[i] = arrayAllImg[thisIdx];
     arrayAllImg[thisIdx].shown++;
+    console.log('incrementing times shown for ', arrayAllImg[thisIdx]);
   }
     // Loop through the imgTag in html and find the tags to fill the src with the filePath and the and the index of that corresponding product in the 'alt' attribute of the img.
     // according to the random position in the array, fill the src of the imgTag with a filePath and store the index corresponding to that product in the 'alt' attribute of the image.
@@ -88,10 +94,24 @@ function getRandomImgs(event){
   }
     // Remove event handler when clickLim is reached
   if (totalClicks >= clickLim) {
+    localStorage.setItem('arrayAllImg', JSON.stringify(arrayAllImg));
+    var tr2 = document.createElement('tr');
+    table.appendChild(tr2);
     for (var i = 0; i < imgTag.length; i++) {
       imgTag[i].removeEventListener('click' , getRandomImgs);
       // createStoreData();
       // storeData(i);
+    }
+    // var holder = JSON.parse(localStorage.getItem('arrayAllImg'));
+    // console.log(holder);
+    // console.log(holder[0].shown);
+
+    for (var i = 0; i < holder.length; i++) {
+      var td = document.createElement('td');
+      td.innerText = holder[i].clicks;
+      td.setAttribute('id' , 'tdId');
+      tr2.appendChild(td);
+
     }
       // select the id click-info in html and create unordered list as a child element below it
     var clickInfo = document.getElementById('click-info');
@@ -135,26 +155,26 @@ function productsShown() {
     console.log(arrayAllImg[i].imgName + 'clicked' + arrayAllImg[i].clicks + 'times.');
   }
 }
-localStorage.setItem('arrayAllImg', JSON.stringify(arrayAllImg));
-var holder =JSON.parse(localStorage.getItem('arrayAllImg'));
-console.log(holder);
-console.log(holder[0].shown);
+// var holder = JSON.parse(localStorage.getItem('arrayAllImg'));
+// console.log(holder);
+// console.log(holder[0].shown);
 
 var table = document.getElementById('table');
 var tr = document.createElement('tr');
 table.appendChild(tr);
 for (var i = 0; i < holder.length; i++) {
   var td = document.createElement('td');
+  td.setAttribute('id' , 'td2Id');
   td.innerText = holder[i].shown;
   tr.appendChild(td);
 }
-var tr2 = document.createElement('tr');
-table.appendChild(tr2);
-for (var i = 0; i < holder.length; i++) {
-    var td = document.createElement('td');
-    td.innerText = holder[i].clicks;
-    tr2.appendChild(td);
-}
+// var tr2 = document.createElement('tr');
+// table.appendChild(tr2);
+// for (var i = 0; i < holder.length; i++) {
+//   var td = document.createElement('td');
+//   td.innerText = holder[i].clicks;
+//   tr2.appendChild(td);
+// }
 
 var canvas = document.getElementById('chart');
 var ctx = canvas.getContext('2d');

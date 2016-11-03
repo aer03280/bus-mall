@@ -28,7 +28,7 @@
 //
 //   ]
 // };
-// var myChart = new Chart (ctx);
+var myChart = new Chart (ctx);
 new Chart (ctx, {
   type: 'bar',
   data: {

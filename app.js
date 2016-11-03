@@ -1,5 +1,8 @@
 'use strict';
 
+var canvas = document.getElementById('chart');
+var ctx = canvas.getContext('2d');
+
 // var percent = [];
 var holder = JSON.parse(localStorage.getItem('arrayAllImg'));
 console.log(holder);
@@ -175,6 +178,3 @@ for (var i = 0; i < holder.length; i++) {
 //   td.innerText = holder[i].clicks;
 //   tr2.appendChild(td);
 // }
-
-var canvas = document.getElementById('chart');
-var ctx = canvas.getContext('2d');

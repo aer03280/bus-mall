@@ -17,7 +17,7 @@ function drawChart() {
       datasets: [
         {
           label: '# Clicks Per Item',
-          backgroundColor: 'rgba(255 , 95 , 132 , 0.2)',
+          backgroundColor: 'rgba(69 , 139 , 0 , 9)',
           // borderColor: [0 , 153 , 153],
           borderWidth: 1,
           data: dataToChart,

@@ -4,7 +4,7 @@ var canvas = document.getElementById('chart');
 var ctx = canvas.getContext('2d');
 
 var totalClicks = 0;
-var clickLim = 6;
+var clickLim = 3;
 
 var holder = JSON.parse(localStorage.getItem('arrayAllImg'));
 console.log(holder);

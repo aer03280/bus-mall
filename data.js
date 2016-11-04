@@ -5,6 +5,7 @@ function drawChart() {
   var namesToChart = [];
   for (var i = 0; i < arrayAllImg.length; i++){
     dataToChart.push(arrayAllImg[i].clicks);
+    // dataToChart.push(arrayAllImg[i].clicks / arrayAllImg[i].shown);
     namesToChart.push(arrayAllImg[i].imgName);
   }
 
@@ -34,6 +35,6 @@ function drawChart() {
       }
     }
   });
-  reponsive: false;
+  responsive: false;
 
 }

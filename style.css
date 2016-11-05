@@ -82,12 +82,6 @@ div img {
   list-style-type: none;
 }
 
-/*#click-info {
-  animation-duration: 1.5s;
-  animation-fill-mode: both;
-  animation-name: zoom-in-right;
-}*/
-
 #button {
   visibility: hidden;
 }
@@ -106,16 +100,18 @@ div img {
   font-size: 35px;
   font-weight: bold;
 }
+
 #table {
   display: table;
   width: 70%;
-  border-collapse: separate;
   border-width: thin;
   border-spacing: 5px;
   border-color: black;
-  background-color: #607d8b;
-  font-size: 24px;
-  margin-left: 5%;
+  background-color: #b8c804;
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 12%;
+  vertical-align: middle;
 }
 
 #styleChart {
@@ -126,23 +122,18 @@ div img {
   width: 500px;
   height: 500px;
   margin-left: 38%;
-  margin-top: 10px;
+  margin-top: 15px;
+  margin-bottom: -30px;
   visibility: visible;
 }
 
-#trId {
+#thNames {
   border: 5px solid black;
   border-width: thin;
-  padding: 5px;
+  padding: 8px;
   text-align: center;
-}
-
-#tdNames {
-  border: 5px solid black;
-  border-width: thin;
-  padding: 5px;
-  text-align: center;
-
+  font-size: 14px;
+  font-weight: bold;
 }
 
 #tdShown {
@@ -150,7 +141,8 @@ div img {
   border-width: thin;
   padding: 5px;
   text-align: center;
-
+  font-size: 16px;
+  font-weight: normal;
 }
 
 #tdClicks {
@@ -158,7 +150,8 @@ div img {
   border-width: thin;
   padding: 5px;
   text-align: center;
-
+  font-size: 16px;
+  font-weight: normal;
 }
 
 #tdRate {
@@ -166,5 +159,6 @@ div img {
   border-width: thin;
   padding: 5px;
   text-align: center;
-
+  font-size: 16px;
+  font-weight: normal;
 }

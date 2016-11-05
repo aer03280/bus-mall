@@ -174,27 +174,31 @@ for (var i = 0; i < imgTag.length; i++) {
 }
 
 function drawTable() {
-  function rows(rowName , rowMsg){
-    var thBlank = (blankRow , '');
-    var thClicks = (clickRow , 'Clicks');
-    var thShown = (shownRow , 'Shown');
-    var thPercent = (rateRow , 'Click Rate');
-    {
-
-    var row = document.createElement(tr);
-    table.appendChild(row);
-    var rowName = document.createElement('th');
-    rowName.innerText = rowMsg;
-    row.appendChild(rowName);
-  }
-  }
   var table = document.getElementById('table');
   var trNames = document.createElement('tr');
+  table.appendChild(trNames);
+  // function rows(rowName , rowMsg){
+  //   {
+  // var makeRow (blankRow , '');
+  // makeRow (clickRow , 'Clicks');
+      var makeRow = function(newRow , rowMsg , makeLine){
+        // var makeLine = document.createElement('tr');
+        // table.appendChild(makeLine);
+        var newRow = document.createElement('th');
+        newRow.setAttribute = ('class' , 'category');
+        newRow.innerText = rowMsg;
+        makeLine.appendChild(newRow);
+      };
+    // var row = document.createElement(tr);
+    // table.appendChild(row);
+    // var rowName = document.createElement('th');
+    // rowName.innerText = rowMsg;
+    // row.appendChild(rowName);
+
   // var trBlank = document.createElement('th');
   // var trClicks = document.createElement('th');
   // var trShown = document.createElement('th');
   // var trPercent = document.createElement('th');
-  table.appendChild(trNames);
   // table.appendChild(trBlank);
   // table.appendChild(trClicks);
   // trClicks.innerText = 'Clicks';
@@ -202,14 +206,24 @@ function drawTable() {
   // trShown.innerText = 'Shown';
   // table.appendChild(trPercent);
   // trPercent.innerText = 'Percent';
+  var thBlank = makeRow('blankRow' , '' , trNames);
+  var namesBlank = document.createElement('th');
+  namesBlank.innerText = '';
+  trNames.appendChild(namesBlank);
   for (var i = 0; i < arrayAllImg.length; i++) {
     var thNames = document.createElement('th');
     thNames.setAttribute('id' , 'thNames');
     thNames.innerText = arrayAllImg[i].imgName;
     trNames.appendChild(thNames);
+
   }
+
   var tr2 = document.createElement('tr');
   table.appendChild(tr2);
+  var thClicks = makeRow('clickRow' , 'Clicks' , tr2);
+  var clicksBlank = document.createElement('td');
+  clicksBlank.innerText = '';
+  tr2.appendChild(clicksBlank);
   for (var i = 0; i < arrayAllImg.length; i++) {
     var td = document.createElement('td');
     td.setAttribute('id' , 'tdClicks');
@@ -219,6 +233,10 @@ function drawTable() {
 
   var trShown = document.createElement('tr');
   table.appendChild(trShown);
+  var thShown = makeRow('shownRow' , 'Shown' , trShown);
+  var shownBlank = document.createElement('td');
+  shownBlank.innerText = '';
+  trShown.appendChild(shownBlank);
   for (var i = 0; i < arrayAllImg.length; i++) {
     var td = document.createElement('td');
     td.setAttribute('id' , 'tdShown');
@@ -227,6 +245,10 @@ function drawTable() {
   }
   var trRate = document.createElement('tr');
   table.appendChild(trRate);
+  var thPercent = makeRow('rateRow' , 'Click Rate' , trRate);
+  var rateBlank = document.createElement('td');
+  rateBlank.innerText = '';
+  trRate.appendChild(rateBlank);
   for (var i = 0; i < arrayAllImg.length; i++) {
     var td = document.createElement('td');
     td.setAttribute('id' , 'tdRate');

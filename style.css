@@ -63,14 +63,17 @@
 
 #div1:hover {
   transform: rotateZ(5deg);
+  cursor: pointer;
 }
 
 #div2:hover {
   transform: rotateZ(5deg);
+  cursor: pointer;
 }
 
 #div3:hover {
   transform: rotateZ(5deg);
+  cursor: pointer;
 }
 
 div img {

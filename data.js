@@ -9,7 +9,6 @@ function drawChart() {
   var namesToChart = [];
   for (var i = 0; i < arrayAllImg.length; i++){
     dataToChart.push(arrayAllImg[i].clicks);
-    // dataToChart.push(arrayAllImg[i].clicks / arrayAllImg[i].shown);
     namesToChart.push(arrayAllImg[i].imgName);
   }
 
@@ -22,23 +21,11 @@ function drawChart() {
         {
           label: '# Clicks Per Item',
           backgroundColor: 'rgba(49 , 129 , 116 , 1)',
-          // borderColor: [0 , 153 , 153],
           borderWidth: 1,
           data: dataToChart,
         }
       ]
     },
-    options: {
-      scales: {
-        xAxes: [{
-          stacked: true
-        }],
-        yAxes: [{
-          stacked: true
-        }]
-      }
-    }
   });
   responsive: false;
-
 }

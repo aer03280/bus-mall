@@ -1,6 +1,10 @@
 'use strict';
 
 function drawChart() {
+  var holder = document.getElementById('styleChart');
+  holder.setAttribute('id' , 'styleChartTwo');
+  var Data = document.getElementById('appear');
+  Data.setAttribute('id' , 'button');
   var dataToChart = [];
   var namesToChart = [];
   for (var i = 0; i < arrayAllImg.length; i++){

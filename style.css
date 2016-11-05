@@ -1,20 +1,20 @@
 #body {
   background: #DDDCC5;
 }
+
 #header {
   background: #611427;
   opacity: 0.95;
-  /*background: #ff9800;*/
   height: 175px;
   width: 600px;
   margin-top: 30px;
-  margin-left: 25%;
+  margin-left: 35%;
   moz-box-shadow: 0 0 15px #777777;
   webkit-box-shadow: 0 0 15px #777777;
   box-shadow: 0 0 15px #777777;
   text-align: center;
   color: #DDDCC5;
-
+  display: inline-block;
 }
 
 #banner {
@@ -63,14 +63,17 @@
 
 #div1:hover {
   transform: rotateZ(5deg);
+  cursor: pointer;
 }
 
 #div2:hover {
   transform: rotateZ(5deg);
+  cursor: pointer;
 }
 
 #div3:hover {
   transform: rotateZ(5deg);
+  cursor: pointer;
 }
 
 div img {
@@ -82,12 +85,6 @@ div img {
   list-style-type: none;
 }
 
-/*#click-info {
-  animation-duration: 1.5s;
-  animation-fill-mode: both;
-  animation-name: zoom-in-right;
-}*/
-
 #button {
   visibility: hidden;
 }
@@ -95,7 +92,7 @@ div img {
 #appear {
   visibility: visible;
   position: absolute;
-  margin-left: 33%;
+  margin-left: 40%;
   margin-top: 90px;
   height: 100px;
   width: 400px;
@@ -106,17 +103,18 @@ div img {
   font-size: 35px;
   font-weight: bold;
 }
+
 #table {
   display: table;
-  width: 50%;
-  border-collapse: separate;
+  width: 70%;
   border-width: thin;
   border-spacing: 5px;
   border-color: black;
-  background-color: #607d8b;
-  font-size: 24px;
-  margin-left: 15%;
-  margin-top: 10px;
+  background-color: #b8c804;
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 12%;
+  vertical-align: middle;
 }
 
 #styleChart {
@@ -126,38 +124,44 @@ div img {
 #styleChartTwo {
   width: 500px;
   height: 500px;
-  margin-left: 29%;
-  margin-top: 20px;
+  margin-left: 38%;
+  margin-top: 15px;
+  margin-bottom: -30px;
   visibility: visible;
 }
 
-#trId {
+#thNames {
   border: 5px solid black;
   border-width: thin;
-  padding: 5px;
+  padding: 8px;
   text-align: center;
+  font-size: 14px;
+  font-weight: bold;
 }
 
-#tdId {
+#tdShown {
   border: 5px solid black;
   border-width: thin;
   padding: 5px;
   text-align: center;
-
+  font-size: 16px;
+  font-weight: normal;
 }
 
-#tr2Id {
+#tdClicks {
   border: 5px solid black;
   border-width: thin;
   padding: 5px;
   text-align: center;
-
+  font-size: 16px;
+  font-weight: normal;
 }
 
-#td2Id {
+#tdRate {
   border: 5px solid black;
   border-width: thin;
   padding: 5px;
   text-align: center;
-
+  font-size: 16px;
+  font-weight: normal;
 }

@@ -124,6 +124,7 @@ function getRandomImgs(event){
     // }
     var Data = document.getElementById('appear');
     Data.addEventListener('click' , drawChart);
+    Data.addEventListener('click' , drawTable);
 
     // drawTable();
   }
@@ -144,7 +145,7 @@ function getRandomImgs(event){
   // var ul = document.createElement('ul');
   // clickInfo.appendChild(ul);
   //
-  //   // for each of the images, list its clicked and shown info
+    // for each of the images, list its clicked and shown info
   // for (var i = 0; i < arrayAllImg.length; i++) {
   //   var thisImage = arrayAllImg[i];
   //   var li = document.createElement('li');
@@ -173,21 +174,73 @@ for (var i = 0; i < imgTag.length; i++) {
 }
 
 function drawTable() {
+  function rows(rowName , rowMsg){
+    var thBlank = (blankRow , '');
+    var thClicks = (clickRow , 'Clicks');
+    var thShown = (shownRow , 'Shown');
+    var thPercent = (rateRow , 'Click Rate');
+    {
+
+    var row = document.createElement(tr);
+    table.appendChild(row);
+    var rowName = document.createElement('th');
+    rowName.innerText = rowMsg;
+    row.appendChild(rowName);
+  }
+  }
   var table = document.getElementById('table');
-  var tr = document.createElement('tr');
-  table.appendChild(tr);
+  var trNames = document.createElement('tr');
+  // var trBlank = document.createElement('th');
+  // var trClicks = document.createElement('th');
+  // var trShown = document.createElement('th');
+  // var trPercent = document.createElement('th');
+  table.appendChild(trNames);
+  // table.appendChild(trBlank);
+  // table.appendChild(trClicks);
+  // trClicks.innerText = 'Clicks';
+  // table.appendChild(trShown);
+  // trShown.innerText = 'Shown';
+  // table.appendChild(trPercent);
+  // trPercent.innerText = 'Percent';
   for (var i = 0; i < arrayAllImg.length; i++) {
-    var td = document.createElement('td');
-    td.setAttribute('id' , 'td2Id');
-    td.innerText = arrayAllImg[i].shown;
-    tr.appendChild(td);
+    var thNames = document.createElement('th');
+    thNames.setAttribute('id' , 'thNames');
+    thNames.innerText = arrayAllImg[i].imgName;
+    trNames.appendChild(thNames);
   }
   var tr2 = document.createElement('tr');
   table.appendChild(tr2);
   for (var i = 0; i < arrayAllImg.length; i++) {
     var td = document.createElement('td');
+    td.setAttribute('id' , 'tdClicks');
     td.innerText = arrayAllImg[i].clicks;
     tr2.appendChild(td);
   }
-}
+
+  var trShown = document.createElement('tr');
+  table.appendChild(trShown);
+  for (var i = 0; i < arrayAllImg.length; i++) {
+    var td = document.createElement('td');
+    td.setAttribute('id' , 'tdShown');
+    td.innerText = arrayAllImg[i].shown;
+    trShown.appendChild(td);
+  }
+  var trRate = document.createElement('tr');
+  table.appendChild(trRate);
+  for (var i = 0; i < arrayAllImg.length; i++) {
+    var td = document.createElement('td');
+    td.setAttribute('id' , 'tdRate');
+    if (arrayAllImg[i].shown === 0 || arrayAllImg[i].clicks === 0)
+    for (var i = 0; i < arrayAllImg.length; i++) {
+      td.innerText = '--';
+      trRate.appendChild(td);
+      console.log('na' , td.innerText);
+    } else {
+      td.innerText = (Math.floor(arrayAllImg[i].clicks / arrayAllImg[i].shown * 100) + '%');
+      trRate.appendChild(td);
+      console.log('percent' , td.innerText);
+    }
+    }
+  }
+
 // button.addEventListener('submit', submitForChart);

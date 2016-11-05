@@ -1,20 +1,20 @@
 #body {
   background: #DDDCC5;
 }
+
 #header {
   background: #611427;
   opacity: 0.95;
-  /*background: #ff9800;*/
   height: 175px;
   width: 600px;
   margin-top: 30px;
-  margin-left: 25%;
+  margin-left: 35%;
   moz-box-shadow: 0 0 15px #777777;
   webkit-box-shadow: 0 0 15px #777777;
   box-shadow: 0 0 15px #777777;
   text-align: center;
   color: #DDDCC5;
-
+  display: inline-block;
 }
 
 #banner {
@@ -95,7 +95,7 @@ div img {
 #appear {
   visibility: visible;
   position: absolute;
-  margin-left: 33%;
+  margin-left: 40%;
   margin-top: 90px;
   height: 100px;
   width: 400px;
@@ -108,15 +108,14 @@ div img {
 }
 #table {
   display: table;
-  width: 50%;
+  width: 70%;
   border-collapse: separate;
   border-width: thin;
   border-spacing: 5px;
   border-color: black;
   background-color: #607d8b;
   font-size: 24px;
-  margin-left: 15%;
-  margin-top: 10px;
+  margin-left: 5%;
 }
 
 #styleChart {
@@ -126,8 +125,8 @@ div img {
 #styleChartTwo {
   width: 500px;
   height: 500px;
-  margin-left: 29%;
-  margin-top: 20px;
+  margin-left: 38%;
+  margin-top: 10px;
   visibility: visible;
 }
 
@@ -138,7 +137,7 @@ div img {
   text-align: center;
 }
 
-#tdId {
+#tdNames {
   border: 5px solid black;
   border-width: thin;
   padding: 5px;
@@ -146,7 +145,7 @@ div img {
 
 }
 
-#tr2Id {
+#tdShown {
   border: 5px solid black;
   border-width: thin;
   padding: 5px;
@@ -154,7 +153,15 @@ div img {
 
 }
 
-#td2Id {
+#tdClicks {
+  border: 5px solid black;
+  border-width: thin;
+  padding: 5px;
+  text-align: center;
+
+}
+
+#tdRate {
   border: 5px solid black;
   border-width: thin;
   padding: 5px;

@@ -1,5 +1,6 @@
 'use strict';
 
+// var startPrompt = alert('Welcome to BusMall\'s shopping survey.  You will be shown three items at a time.  Please click on the item you are most likely to buy.  After 25 clicks you will see a chart representing the results of your survey.');
 var canvas = document.getElementById('chart');
 var ctx = canvas.getContext('2d');
 
@@ -102,15 +103,32 @@ function getRandomImgs(event){
     // Remove event handler when clickLim is reached
   localStorage.setItem('arrayAllImg', JSON.stringify(arrayAllImg));
 
-  if (totalClicks >= clickLim) {
-
+  if (totalClicks >= clickLim) {{
+    var showButton = document.getElementById('button');
+    showButton.setAttribute('id' , 'appear');
+    var hidePics = document.getElementById('sectionOne');
+    hidePics.setAttribute('id' , 'sectionTwo');
+  }
     localStorage.setItem('arrayAllImg', JSON.stringify(arrayAllImg));
     for (var i = 0; i < imgTag.length; i++) {
       imgTag[i].removeEventListener('click' , getRandomImgs);
+
     }
-    drawChart();
-    drawTable();
+    // function submitForChart(event)
+    {
+    }
+    // function drawChart(){
+      // var holder = document.getElementById('styleChart');
+      // holder.setAttribute('id' , 'styleChartTwo');
+      // drawChart();
+    // }
+    var Data = document.getElementById('appear');
+    Data.addEventListener('click' , drawChart);
+
+    // drawTable();
   }
+}
+
     // var holder = JSON.parse(localStorage.getItem('arrayAllImg'));
     // console.log(holder);
     // console.log(holder[0].shown);
@@ -143,7 +161,6 @@ function getRandomImgs(event){
   //   li.innerText = fillerInfo;
   //   ul.appendChild(li);
   // }
-}
 
 getRandomImgs();
 // compensating for the extra click added by calling the above function when page initially loads
@@ -173,3 +190,4 @@ function drawTable() {
     tr2.appendChild(td);
   }
 }
+// button.addEventListener('submit', submitForChart);

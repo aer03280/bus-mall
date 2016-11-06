@@ -1,5 +1,6 @@
 'use strict';
 
+var startPrompt = alert('Welcome to BusMall\'s shopping survey.  You will be shown three items at a time.  Please click on the item you are most likely to buy.  After 25 clicks you will see a chart representing the results of your survey.');
 var canvas = document.getElementById('chart');
 var ctx = canvas.getContext('2d');
 
